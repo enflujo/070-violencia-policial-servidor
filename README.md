@@ -15,9 +15,7 @@
 </p>
 
 <h3 align="center">
-  <a href="#configuration">Configuración</a>
-  <span> · </span>
-  <a href="#quickstart">Usar este repositorio</a>
+  <a href="#usar-este-repositorio">Usar este repositorio</a>
 </h3>
 
 Datasheet server hace que los recursos de una hoja de cálculo estén disponibles como una API estructurada.
