@@ -51,7 +51,7 @@ Cada hoja de cálculo de Google Sheet usada como fuente requiere un objeto corre
 
 Vea src/config.js para ver una hoja de configuración de ejemplo.
 
-## [Usar este repositorio](#quickstart)
+## [Usar este repositorio](#usar-este-repositorio)
 
 Para usar este repositorio por primera vez de forma local:
 
