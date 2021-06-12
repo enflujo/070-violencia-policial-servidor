@@ -97,7 +97,7 @@ docker run -d -p 0.0.0.0:4040:4040 datasheet-server
 
 ### Publicar en un servidor externo
 
-1. Seguir las instrucciones de [### correr localmente](#quickstart) pero estando conectadx al servidor externo.
+1. Seguir las instrucciones de [correr localmente](#usar-este-repositorio) en el servidor externo.
 
 2. Instalar PM2
 
