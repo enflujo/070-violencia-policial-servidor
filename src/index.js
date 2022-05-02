@@ -1,46 +1,41 @@
-import http from 'http'
-import path from 'path'
-import express from 'express'
-import initialize from './initialize'
-import api from './api'
-import dotenv from 'dotenv'
+import 'dotenv/config';
+import http from 'http';
+import path from 'path';
+import express from 'express';
+import initialize from './initialize';
+import api from './api';
+import { engine } from 'express-handlebars';
 
-dotenv.config()
+const app = express();
+app.server = http.createServer(app);
 
-const hbs = require('express-handlebars')
-
-const app = express()
-app.server = http.createServer(app)
-app.engine('.hbs', hbs({
-  extname: '.hbs',
-  defaultLayout: 'default'
-}))
-app.set('view engine', '.hbs')
+app.engine('.hbs', engine({ extname: '.hbs', defaultLayout: 'default' }));
+app.set('view engine', '.hbs');
 
 // enable cross origin requests explicitly in development
 if (process.env.NODE_ENV === 'development') {
-  const cors = require('cors')
-  console.log('Enabling CORS in development...')
-  app.use(cors())
+  const cors = require('cors');
+  console.log('Enabling CORS in development...');
+  app.use(cors());
 }
 
-const config = process.env
+const config = process.env;
 
-initialize(controller => {
+initialize((controller) => {
   app.use(
     '/api',
     api({
       config,
-      controller
+      controller,
     })
-  )
+  );
 
-  app.use(express.static(path.join(__dirname, 'public')))
+  app.use(express.static(path.join(__dirname, 'public')));
 
   app.server.listen(process.env.PORT || 4040, () => {
-    console.log('===========================================')
-    console.log(`Server running on port ${app.server.address().port}`)
-  })
-})
+    console.log('===========================================');
+    console.log(`Server running on port ${app.server.address().port}`);
+  });
+});
 
-export default app
+export default app;
