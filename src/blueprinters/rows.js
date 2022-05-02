@@ -1,4 +1,4 @@
-import { fmtObj } from '../lib/util'
+import { fmtObj } from '../lib/util';
 
 /**
  * Each resource item is an object with values labelled according
@@ -8,14 +8,14 @@ import { fmtObj } from '../lib/util'
  * @return {type} Array       the structured data.
  */
 export default (data) => {
-  const itemLabels = data[0]
-  const fmt = fmtObj(itemLabels)
-  const output = []
+  const itemLabels = data[0];
+  const fmt = fmtObj(itemLabels);
+  const output = [];
 
   data.forEach((row, idx) => {
-    if (idx === 0) return
-    output.push(fmt(row))
-  })
+    if (idx === 0) return;
+    output.push(fmt(row));
+  });
 
-  return output
-}
+  return output;
+};

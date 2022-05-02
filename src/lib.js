@@ -1,29 +1,29 @@
-import BP from './lib/blueprinters'
+import BP from './lib/blueprinters';
 
-function blueprintExists (format) {
-  return typeof format === 'string' && format in BP
+function blueprintExists(format) {
+  return typeof format === 'string' && format in BP;
 }
 
-function prefixedTabs (prefix, cfg, sheets) {
-  if (!sheets) return
-  if (!cfg) cfg = {}
+function prefixedTabs(prefix, cfg, sheets) {
+  if (!sheets) return;
+  if (!cfg) cfg = {};
 
-  const ret = {}
+  const ret = {};
 
   sheets.forEach((sheet) => {
-    const format = sheet.format
-    let cb
+    const format = sheet.format;
+    let cb;
 
     if (Array.isArray(format)) {
-      cb = format.filter((f) => blueprintExists(f)).map((f) => BP[f])
+      cb = format.filter((f) => blueprintExists(f)).map((f) => BP[f]);
     } else if (blueprintExists(format)) {
-      cb = BP[format]
+      cb = BP[format];
     }
 
-    ret[sheet.name] = cb
-  })
+    ret[sheet.name] = cb;
+  });
 
-  return ret
+  return ret;
 
   // return {
   //   [`${prf('eventos')}eventos`]: BP.rows,
@@ -36,5 +36,5 @@ function prefixedTabs (prefix, cfg, sheets) {
 
 export const timemap = {
   default: prefixedTabs(),
-  prefixedTabs
-}
+  prefixedTabs,
+};

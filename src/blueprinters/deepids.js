@@ -1,4 +1,4 @@
-import deeprows from './deeprows'
+import deeprows from './deeprows';
 
 /**
  * Each resource item is an object with values labelled according
@@ -12,11 +12,11 @@ import deeprows from './deeprows'
  * @return {type} Object      the structured data.
  */
 export default (data) => {
-  const output = {}
+  const output = {};
 
-  deeprows(data).forEach(row => {
-    output[row.id] = row
-  })
+  deeprows(data).forEach((row) => {
+    output[row.id] = row;
+  });
 
-  return output
-}
+  return output;
+};

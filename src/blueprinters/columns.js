@@ -10,18 +10,18 @@
  * @return {type} Array       the structured data.
  */
 export default (data) => {
-  const columnNames = data[0]
-  const columns = columnNames.map(name => ([]))
+  const columnNames = data[0];
+  const columns = columnNames.map((name) => []);
 
   data.forEach((row, idx) => {
-    if (idx === 0) return
+    if (idx === 0) return;
     row.forEach((item, idx) => {
-      columns[idx].push(item)
-    })
-  })
+      columns[idx].push(item);
+    });
+  });
 
   return columns.map((column, idx) => ({
     name: columnNames[idx],
-    items: column
-  }))
-}
+    items: column,
+  }));
+};
