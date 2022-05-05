@@ -1,4 +1,4 @@
-import { fmtObj } from '../lib/util'
+import { fmtObj } from '../lib/util';
 
 /**
  * Very similar to the rows blueprinter, but inserts each row as a value in
@@ -9,14 +9,14 @@ import { fmtObj } from '../lib/util'
  * @return {type} Object      the structured data.
  */
 export default (data) => {
-  const itemLabels = data[0]
-  const fmt = fmtObj(itemLabels)
-  const output = {}
+  const itemLabels = data[0];
+  const fmt = fmtObj(itemLabels);
+  const output = {};
 
   data.forEach((row, idx) => {
-    if (idx === 0) return
-    output[fmt(row).id] = fmt(row)
-  })
+    if (idx === 0) return;
+    output[fmt(row).id] = fmt(row);
+  });
 
-  return output
-}
+  return output;
+};

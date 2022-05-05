@@ -7,34 +7,34 @@
 export default (data) => {
   const tree = {
     key: '_root',
-    children: {}
-  }
+    children: {},
+  };
 
-  data.forEach(path => {
-    const root = path[0]
+  data.forEach((path) => {
+    const root = path[0];
     if (!tree.children[root]) {
       tree.children[root] = {
         key: root,
-        children: {}
-      }
+        children: {},
+      };
     }
 
-    let depth = 1
-    let parentNode = tree.children[root]
+    let depth = 1;
+    let parentNode = tree.children[root];
 
     while (depth < path.length) {
-      const node = path[depth]
+      const node = path[depth];
       if (!parentNode.children[node]) {
         parentNode.children[node] = {
           key: node,
-          children: {}
-        }
+          children: {},
+        };
       }
-      parentNode = parentNode.children[node]
+      parentNode = parentNode.children[node];
 
-      depth++
+      depth++;
     }
-  })
+  });
 
-  return tree
-}
+  return tree;
+};
