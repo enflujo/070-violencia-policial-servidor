@@ -32,7 +32,7 @@ initialize((controller) => {
 
   app.use(express.static(path.join(__dirname, 'public')));
 
-  app.server.listen(process.env.PORT || 4040, () => {
+  app.server.listen(process.env.PORT || 4040, process.env.HOST || '127.0.0.1', () => {
     console.log('===========================================');
     console.log(`Server running on port ${app.server.address().port}`);
   });
